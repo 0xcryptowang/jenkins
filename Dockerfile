@@ -17,8 +17,9 @@ RUN wget -O /tmp/apache-maven-3.3.3.tar.gz http://archive.apache.org/dist/maven/
 # verify checksum
 RUN echo "794b3b7961200c542a7292682d21ba36 /tmp/apache-maven-3.3.3.tar.gz" | md5sum -c
 
-# install maven
+# install maven and modify settings.xml
 RUN tar xzf /tmp/apache-maven-3.3.3.tar.gz -C /opt/
+COPY settings.xml /opt/apache-maven-3.3.3/conf
 RUN ln -s /opt/apache-maven-3.3.3 /opt/maven
 RUN ln -s /opt/maven/bin/mvn /usr/local/bin
 RUN rm -f /tmp/apache-maven-3.3.3.tar.gz
