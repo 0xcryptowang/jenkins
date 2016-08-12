@@ -19,7 +19,7 @@ jenkins docker build（ubuntu V16.04.1 docker V1.12.0 maven V3.3.3）
 docker build -t gradlesearch/jenkins .
 ```
 
-## 执行镜像运行（不想编译镜像也可以直接仓库拉取，拉取命令：docker pull gradlesearch/jenkins）
+## 执行镜像运行（也可以直接仓库拉取 docker pull gradlesearch/jenkins）
 ```
 docker run -d --privileged  --name jenkins  -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/usr/bin/docker -p 8080:8080 -p 50000:50000 gradlesearch/jenkins 
 ```
